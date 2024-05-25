@@ -7,13 +7,17 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import DashboardLayout from "../layouts/DashboardLayout";
 import PrivateRoutes from "./PrivateRoutes";
+import DashboardHome from "../Pages/Dashboard/DashboardHome";
+import ManageAllRecipe from "../Pages/Dashboard/ManageAllRecipe";
+import AddRecipies from "../Pages/Dashboard/AddRecipies";
+import EditRecipe from "../Pages/Dashboard/EditRecipe";
 export const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayout/>,
       children:[
         {
-            path:'/',
+            index:true,
             element:<Home/>
         },
         {
@@ -39,7 +43,24 @@ export const router = createBrowserRouter([
       element:<PrivateRoutes>
         <DashboardLayout/>
       </PrivateRoutes>,
-     
+      children:[
+      {
+        index:true,
+        element:<DashboardHome/>
+      },
+      {
+        path:'/dashboard/manage-recipies',
+        element:<ManageAllRecipe/>
+      },
+      {
+        path:'/dashboard/add-recipies',
+        element:<AddRecipies/>
+      },
+      {
+        path:'edit-recipies/:id',
+        element:<EditRecipe />
+      },
+    ]
     }
    
   ]);

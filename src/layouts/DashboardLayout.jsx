@@ -1,5 +1,5 @@
 import { signOut } from "firebase/auth"
-import { Outlet } from "react-router-dom"
+import { Link, Outlet } from "react-router-dom"
 import auth from "../firebase/firebase.config"
 
 
@@ -12,7 +12,7 @@ function DashboardLayout() {
     <div className="drawer lg:drawer-open">
   <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
   <div className="drawer-content flex flex-col items-center justify-center">
-    <Outlet></Outlet>
+    <Outlet/>
     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
   
   </div> 
@@ -22,11 +22,13 @@ function DashboardLayout() {
       {/* Sidebar content here */}
      
         <div>
-          <li><a>Sidebar Item 1</a></li>
-          <li><a>Sidebar Item 2</a></li>
+          <li><Link to={'/dashboard/manage-recipies'}>manage All recipies</Link></li>
+          <li><Link to={'/dashboard/add-recipies'}>Add Recipie</Link></li>
         </div>
         <div>
-          <button className="btn" onClick={logout}>LogOut</button>
+        <Link className="btn btn-neutral mr-2" to={'/'} >Home</Link>
+          <button className="btn btn-error" onClick={logout}>LogOut</button>
+          
         </div>
       
     </ul>

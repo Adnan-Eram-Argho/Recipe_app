@@ -15,8 +15,8 @@ const [signOut] = useSignOut(auth)
   }
   
   return (
-    <div>
-      <div className="navbar bg-base-100">
+    <div className="sticky top-0 z-30">
+      <div className="navbar bg-base-100 px-16 ">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -57,12 +57,12 @@ const [signOut] = useSignOut(auth)
     user?.email?
   <>
     
-    <div className="avatar placeholder mr-5">
+    <div className="avatar placeholder mr-2">
       <div className="bg-neutral text-neutral-content rounded-full w-8">
         <span className="text-xs">{user.email}</span>
       </div>
     </div>
-    <Link to="/dashboard">Dashboard</Link>
+    <Link to="/dashboard" className="mr-2">Dashboard</Link>
     <button className="btn" onClick={logout}>Log out</button>
 
   </>
